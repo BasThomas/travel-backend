@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::get('/info', function (Request $request) {
+    return response()->json(["app" => "Travelguide", "version" => "1.0"]);
+});
+
+Route::get('/places/add', 'PlacesController@getAddPlace');
