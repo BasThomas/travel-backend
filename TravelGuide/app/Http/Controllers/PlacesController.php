@@ -14,8 +14,8 @@ use App\Place;
 class PlacesController extends Controller
 {
     public function getPlaces(){
-        
-        return view('places');
+        $places = Place::all();
+        return view('places')->with("places", $places);
     }
 
     public function getAddPlace(){
