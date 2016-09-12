@@ -17,4 +17,4 @@ Route::get('/info', function (Request $request) {
     return response()->json(["app" => "Travelguide", "version" => "1.0"]);
 });
 
-Route::get('/places/add', 'PlacesController@getAddPlace');
+Route::post('places/add', 'PlacesController@postAddPlace');
