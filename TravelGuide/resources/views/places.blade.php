@@ -11,7 +11,7 @@
                     <iframe
                             class="embed-responsive-item"
                             frameborder="0" style="border:0"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCpTVguER8ZWZGtRG25OtiDbylye_wTMVM&q={{$place->name}}">
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCpTVguER8ZWZGtRG25OtiDbylye_wTMVM&q={{$place->lat}},{{$place->long}}+({{$place->name}})">
                     </iframe>
                 </div>
                 @if($place->images())
