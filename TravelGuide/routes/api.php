@@ -18,3 +18,5 @@ Route::get('/info', function (Request $request) {
 });
 
 Route::post('places/add', 'PlacesController@postAddPlace');
+
+Route::post('places/photos/add', 'PlacesController@postAddPhoto');

@@ -14,6 +14,11 @@
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCpTVguER8ZWZGtRG25OtiDbylye_wTMVM&q={{$place->name}}">
                     </iframe>
                 </div>
+                @if($place->images())
+                @foreach($place->images()->get() as $img)
+                <img src="{{URL::to($img->url)}}"/>
+                    @endforeach
+                @endif
             </div>
             <div class="col-md-8">
 

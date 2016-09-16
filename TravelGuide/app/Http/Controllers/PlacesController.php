@@ -9,7 +9,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Image;
 use App\Place;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 
@@ -30,8 +32,18 @@ class PlacesController extends Controller
             $place->lat = $request->lat;
             $place->pageid = $request->pageid;
             $place->save();
-            return response("ok", 201);
+            return response()->json(['status' => 'ok'], 200);
         }
-        return response("already exists", 409);
+        return response()->json(['status' => 'error','error'=> 'place already exists'], 409);
+    }
+    
+    public function postAddPhoto(Request $request){
+        $path = $request->file->storeAs('images', Carbon::now()->timestamp . '-image.jpg');
+        $image = new Image();
+        $image->url = $path;
+        $place = Place::find($request->placeid);
+        $image->place()->associate($place);
+        $image->save();
+        return response()->json(['status' => 'ok'],200);
     }
 }
