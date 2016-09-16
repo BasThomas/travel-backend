@@ -11,9 +11,15 @@
 |
 */
 
+use Intervention\Image\Facades\Image;
+
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/places', 'PlacesController@getPlaces');
+Route::get('places', 'PlacesController@getPlaces');
 
+Route::get('images/{filename}', function ($filename)
+{
+    return Image::make(storage_path() . '/app/images/' . $filename)->response();
+});

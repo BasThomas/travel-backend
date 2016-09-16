@@ -12,8 +12,25 @@
 
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{URL::to('css/style.css')}}">
-    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{URL::to('css/jquery.fancybox.css')}}">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{URL::to('js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{URL::to('js/jquery.fancybox.js')}}"></script>
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+            $('.grid').imagesLoaded(function () {
+                $('.grid').masonry({
+                    // options
+                    itemSelector: '.grid-item',
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -22,7 +39,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

@@ -44,6 +44,6 @@ class PlacesController extends Controller
         $place = Place::find($request->placeid);
         $image->place()->associate($place);
         $image->save();
-        return response()->json(['status' => 'ok'],200);
+        return response()->json(['status' => 'ok', 'url' => $path],200);
     }
 }

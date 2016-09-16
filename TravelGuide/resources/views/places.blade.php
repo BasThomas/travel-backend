@@ -11,18 +11,20 @@
                     <iframe
                             class="embed-responsive-item"
                             frameborder="0" style="border:0"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCpTVguER8ZWZGtRG25OtiDbylye_wTMVM&q={{$place->lat}},{{$place->long}}+({{$place->name}})">
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCpTVguER8ZWZGtRG25OtiDbylye_wTMVM&q={{$place->lat}},{{$place->long}}">
                     </iframe>
                 </div>
-                @if($place->images())
-                @foreach($place->images()->get() as $img)
-                <img src="{{URL::to($img->url)}}"/>
-                    @endforeach
-                @endif
             </div>
             <div class="col-md-8">
-
+                @if($place->images())
+                    <div class="row grid">
+                        @foreach($place->images()->get() as $img)
+                            <div class="col-md-4 grid-item"><a class="fancybox" rel="{{$place->id}}" href="{{URL::to($img->url)}}"><img class="grayscale" src="{{URL::to($img->url)}}" width="100%"/></a></div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
         </div>
+        <hr />
     @endforeach
 @endsection
