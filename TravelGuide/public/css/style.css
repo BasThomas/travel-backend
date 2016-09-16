@@ -1,5 +1,5 @@
 body {
-    min-height: 2000px;
+    /*min-height: 2000px;*/
     padding-top: 70px;
 }
 
@@ -21,7 +21,7 @@ img.grayscale {
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
     margin-bottom: 20px;
-    border: 1px solid black;
+    border: 1px solid #999797;
 }
 
 img.grayscale:hover {
